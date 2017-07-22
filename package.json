@@ -1,0 +1,29 @@
+{
+	"name": "complate-express",
+	"version": "0.8.0",
+	"description": "complate integration for Express",
+	"author": "FND",
+	"license": "Apache-2.0",
+	"homepage": "https://github.com/complate/complate-express",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/complate/complate-express.git"
+	},
+	"bugs": {
+		"url": "https://github.com/complate/complate-express/issues"
+	},
+	"main": "src/index.js",
+	"scripts": {
+		"test": "eslint --cache *.js src && echo ✓"
+	},
+	"dependencies": {
+		"complate-jsx": "^0.7.1",
+		"complate-stream": "^0.9.6"
+	},
+	"peerDependencies": {
+		"express": "*"
+	},
+	"devDependencies": {
+		"release-util-fnd": "^1.0.0"
+	}
+}
