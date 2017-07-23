@@ -1,21 +1,17 @@
 "use strict";
 
-let WritableStream = require("./writable_stream");
+const WritableStream = require("./writable_stream");
 
-module.exports = class Renderer {
-	constructor(bundlePath) {
-		this.bundlePath = bundlePath;
-		this.reload();
-	}
+module.exports = bundle => {
+	const _render = bundle;
 
-	render(response, tag, params) {
-		// TODO: `response.status(200);`?
-		let stream = new WritableStream(response);
-		this._render(stream, tag, params);
-		response.end();
-	}
+	return (req, res, next) => {
+		res.render = (tag, params) => {
+			let stream = new WritableStream(res);
+			_render(stream, tag, params);
+			res.end();
+		};
 
-	reload() {
-		this._render = require(this.bundlePath);
-	}
+		next();
+	};
 };
