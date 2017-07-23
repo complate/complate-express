@@ -1,0 +1,21 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run compile && node index.js",
+    "compile": "faucet --no-fingerprint --compact"
+  },
+  "author": "Falk Hoppe <falkhoppe81@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "complate-express": "file:..",
+    "express": "^4.15.3"
+  },
+  "devDependencies": {
+    "complate-jsx": "^0.7.1",
+    "faucet-pipeline": "^0.10.2",
+    "faucet-pipeline-js": "^0.11.0"
+  }
+}
