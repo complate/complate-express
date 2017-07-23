@@ -9,7 +9,7 @@ const app = express();
 app.use(complate(bundle));
 
 app.get("/", (req, res) => {
-	return res.render("site-index", { title: "Hello World!" });
+	return res.complate("site-index", { title: "Hello World!" });
 });
 
 app.listen(5000);
