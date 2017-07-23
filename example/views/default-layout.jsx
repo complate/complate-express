@@ -12,4 +12,3 @@ registerMacro("default-layout", (...children) => {
 		</body>
 	</html>;
 });
-export default { hello: true };
