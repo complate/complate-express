@@ -25,7 +25,7 @@ function resolveRenderer(app, rendererPath, { cache } = {}) {
 	// and its components.
 	//
 	// Set `cache` to true, if you want to cache the renderer also in dev-mode.
-	if(!cache || !app.enabled("view cache")) {
+	if(!cache && !app.enabled("view cache")) {
 		delete require.cache[rendererPath];
 	}
 
