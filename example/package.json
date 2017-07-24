@@ -14,8 +14,6 @@
     "express": "^4.15.3"
   },
   "devDependencies": {
-    "complate-jsx": "^0.7.1",
-    "faucet-pipeline": "^0.10.2",
-    "faucet-pipeline-js": "^0.11.0"
+    "complate-jsx": "^0.7.1"
   }
 }
