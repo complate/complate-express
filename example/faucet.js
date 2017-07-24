@@ -3,6 +3,7 @@ const config = {
 	manifest: false,
 	bundles: [{
 		entryPoint: "./views/bundle.js",
+		target: "bundle.js",
 		format: "cjs",
 		moduleName: "render",
 		transpiler: {
