@@ -5,7 +5,7 @@ const WritableStream = require("./writable_stream");
 module.exports = rendererPath => {
 	return (req, res, next) => {
 		const renderer = typeof rendererPath === "function" ?
-			rendererPath	:
+			rendererPath :
 			resolveRenderer(res.app, rendererPath, { cache: true });
 
 		res.complate = (tag, params) => {
