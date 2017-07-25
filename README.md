@@ -6,7 +6,7 @@ This library is based on [complate-stream](https://github.com/complate/complate-
 
 ## Quick Start Guide
 
-Install complate-express to your express application
+Install complate-express in your express application
 
 ```
 npm install complate-express
