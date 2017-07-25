@@ -30,14 +30,13 @@ app.get('/', (req, res) => {
 
 ## API
 
-#### complate(rendererPath: String|Renderer, options: Object)
+#### complate(rendererPath: String, options: Object)
 
-**@param bundle**: is either a path to renderer Module, or the required module itself.
-If a path is given, the module will not be cached in if `app.enabled("view cache")` is false,
-like it is in dev-mode.
+**@param bundle**: is a path to the complate renderer Module.
+The module will not be cached if `app.enabled("view cache")` is false, like it is in dev-mode.
 
 **@param options**: `{ cache = false }`
 
 Options:
 
-- cache: forces the given bundle to be cached (otherwise `app.enabled('view cache')` kicks in)
+- cache: forces the given bundle to be cached if set to `true` (otherwise `app.enabled('view cache')` kicks in)
