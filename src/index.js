@@ -2,7 +2,7 @@
 
 const WritableStream = require("./writable_stream");
 
-module.exports = rendererPath => {
+module.exports = (rendererPath, { cache = false } = {}) => {
 	return (req, res, next) => {
 		const renderer = typeof rendererPath === "function" ?
 			rendererPath :
@@ -18,7 +18,7 @@ module.exports = rendererPath => {
 	};
 };
 
-function resolveRenderer(app, rendererPath, { cache } = {}) {
+function resolveRenderer(app, rendererPath, { cache = false } = {}) {
 	// by default the require cache is disabled for dev environment,
 	// so the given renderer is updated on each request.
 	// This enables a watch/compile setup for re-creating the renderer
