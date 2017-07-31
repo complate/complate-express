@@ -17,13 +17,14 @@
 		"test": "eslint --cache *.js src && echo ✓"
 	},
 	"dependencies": {
-		"complate-stream": "^0.9.6"
+		"complate-stream": "^0.9.7",
+		"faucet-pipeline-jsx": "^0.9.0"
 	},
 	"peerDependencies": {
 		"express": "*"
 	},
 	"devDependencies": {
-		"eslint-config-fnd": "^1.1.1",
-		"release-util-fnd": "^1.0.0"
+		"eslint-config-fnd": "^1.2.0",
+		"release-util-fnd": "^1.0.2"
 	}
 }
