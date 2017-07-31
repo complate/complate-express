@@ -1,21 +1,28 @@
 "use strict";
 
-let WritableStream = require("./writable_stream");
+const WritableStream = require("./writable_stream");
 
-module.exports = class Renderer {
-	constructor(bundlePath) {
-		this.bundlePath = bundlePath;
-		this.reload();
-	}
+module.exports = bundlePath => {
+	return (req, res, next) => {
+		const renderer = resolveBundle(res.app, bundlePath);
 
-	render(response, tag, params) {
-		// TODO: `response.status(200);`?
-		let stream = new WritableStream(response);
-		this._render(stream, tag, params);
-		response.end();
-	}
+		res.complate = (tag, params) => {
+			let stream = new WritableStream(res);
+			renderer(stream, tag, params);
+			res.end();
+		};
 
-	reload() {
-		this._render = require(this.bundlePath);
-	}
+		next();
+	};
 };
+
+function resolveBundle(app, bundlePath) {
+	// similar to template caching in other express template engines,
+	// we rely on the `view cache` property to decide whether to reload
+	// the given bundle or not.
+	if(!app.enabled("view cache")) {
+		delete require.cache[bundlePath];
+	}
+
+	return require(bundlePath);
+}
