@@ -1,21 +1,24 @@
 "use strict";
 
 let WritableStream = require("./writable_stream");
+let path = require("path");
 
-module.exports = class Renderer {
-	constructor(bundlePath) {
-		this.bundlePath = bundlePath;
-		this.reload();
-	}
+// generates middleware adding `#complate` rendering method to response object
+module.exports = bundlePath => {
+	bundlePath = path.resolve(bundlePath);
 
-	render(response, tag, params) {
-		// TODO: `response.status(200);`?
-		let stream = new WritableStream(response);
-		this._render(stream, tag, params);
-		response.end();
-	}
+	return (req, res, next) => {
+		if(!res.app.enabled("view cache")) { // ensure bundle is reloaded
+			delete require.cache[bundlePath];
+		}
+		let render = require(bundlePath);
 
-	reload() {
-		this._render = require(this.bundlePath);
-	}
+		res.complate = (tag, params) => {
+			let stream = new WritableStream(res);
+			render(stream, tag, params);
+			res.end();
+		};
+
+		next();
+	};
 };
