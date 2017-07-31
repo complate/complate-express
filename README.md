@@ -30,9 +30,9 @@ app.get('/', (req, res) => {
 
 ## API
 
-#### complate(rendererPath: String, options: Object)
+#### complate(bundlePath: String, options: Object)
 
-**@param bundle**: is a path to the complate renderer Module.
+**@param bundlePath**: is a path to the complate renderer Module.
 The module will not be cached if `app.enabled("view cache")` is false, like it is in dev-mode.
 
 **@param options**: `{ cache = false }`

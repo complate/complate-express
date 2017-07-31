@@ -2,9 +2,9 @@
 
 const WritableStream = require("./writable_stream");
 
-module.exports = (rendererPath, { cache = false } = {}) => {
+module.exports = (bundlePath, { cache = false } = {}) => {
 	return (req, res, next) => {
-		const renderer = resolveRenderer(res.app, rendererPath, { cache });
+		const renderer = resolveBundle(res.app, bundlePath, { cache });
 
 		res.complate = (tag, params) => {
 			let stream = new WritableStream(res);
@@ -16,7 +16,7 @@ module.exports = (rendererPath, { cache = false } = {}) => {
 	};
 };
 
-function resolveRenderer(app, rendererPath, { cache = false } = {}) {
+function resolveBundle(app, bundlePath, { cache = false } = {}) {
 	// by default the require cache is disabled for dev environment,
 	// so the given renderer is updated on each request.
 	// This enables a watch/compile setup for re-creating the renderer
@@ -24,8 +24,8 @@ function resolveRenderer(app, rendererPath, { cache = false } = {}) {
 	//
 	// Set `cache` to true, if you want to cache the renderer also in dev-mode.
 	if(!cache && !app.enabled("view cache")) {
-		delete require.cache[rendererPath];
+		delete require.cache[bundlePath];
 	}
 
-	return require(rendererPath);
+	return require(bundlePath);
 }
