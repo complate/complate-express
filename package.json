@@ -1,6 +1,6 @@
 {
 	"name": "complate-express",
-	"version": "0.9.0",
+	"version": "0.9.1",
 	"description": "complate integration for Express",
 	"author": "FND",
 	"license": "Apache-2.0",
@@ -17,8 +17,8 @@
 		"test": "eslint --cache *.js src && echo ✓"
 	},
 	"dependencies": {
-		"complate-stream": "^0.9.7",
-		"faucet-pipeline-jsx": "^0.9.0"
+		"complate-stream": "^0.9",
+		"faucet-pipeline-jsx": "^0.9"
 	},
 	"peerDependencies": {
 		"express": "*"
