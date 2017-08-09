@@ -14,9 +14,10 @@ module.exports = bundlePath => {
 		let render = require(bundlePath);
 
 		res.complate = (tag, params) => {
-			let stream = new WritableStream(res);
-			render(stream, tag, params);
-			res.end();
+			let stream = new WritableStream(this);
+			render(stream, tag, params, _ => {
+				this.end();
+			});
 		};
 
 		next();
