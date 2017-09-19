@@ -11,11 +11,11 @@ module.exports = bundlePath => {
 		if(!res.app.enabled("view cache")) { // ensure bundle is reloaded
 			delete require.cache[bundlePath];
 		}
-		let render = require(bundlePath);
+		let renderView = require(bundlePath);
 
-		res.complate = function(tag, params) {
+		res.complate = function(view, fragment, params) {
 			let stream = new WritableStream(this);
-			render(stream, tag, params, _ => {
+			renderView(view, params, stream, fragment, _ => {
 				this.end();
 			});
 		};
