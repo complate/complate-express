@@ -1,6 +1,6 @@
 {
 	"name": "complate-express",
-	"version": "0.12.0",
+	"version": "0.12.1",
 	"description": "complate integration for Express",
 	"author": "FND",
 	"license": "Apache-2.0",

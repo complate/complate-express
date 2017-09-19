@@ -13,7 +13,7 @@ module.exports = bundlePath => {
 		}
 		let renderView = require(bundlePath);
 
-		res.complate = function(view, fragment, params) {
+		res.complate = function(view, params, fragment) {
 			let stream = new WritableStream(this);
 			renderView(view, params, stream, fragment, _ => {
 				this.end();
