@@ -17,7 +17,7 @@
 		"test": "eslint --cache *.js src && echo ✓"
 	},
 	"dependencies": {
-		"complate-stream": "^0.14.0",
+		"complate-stream": "0.x",
 		"faucet-pipeline-jsx": "^0.10"
 	},
 	"peerDependencies": {
