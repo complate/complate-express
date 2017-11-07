@@ -13,7 +13,11 @@ module.exports = bundlePath => {
 		}
 		let renderView = require(bundlePath);
 
-		res.complate = function(view, params, fragment) {
+		// NB: invocation context is the respective HTTP response object
+		res.complate = function(view, params,
+				{ fragment, contentType = "text/html" } = {}) {
+			this.set("Content-Type", contentType);
+
 			let stream = new WritableStream(this);
 			renderView(view, params, stream, fragment, _ => {
 				this.end();
