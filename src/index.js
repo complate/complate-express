@@ -15,7 +15,8 @@ module.exports = bundlePath => {
 
 		// NB: invocation context is the respective HTTP response object
 		res.complate = function(view, params,
-				{ fragment, contentType = "text/html" } = {}) {
+				{ fragment, statusCode = 200, contentType = "text/html" } = {}) {
+			this.status(statusCode);
 			this.set("Content-Type", contentType);
 
 			let stream = new WritableStream(this);
