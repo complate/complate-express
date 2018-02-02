@@ -1,5 +1,7 @@
 # complate-express
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/complate/complate-express.svg)](https://greenkeeper.io/)
+
 [Express](http://expressjs.com) adaptor for [complate](https://complate)
 
 
