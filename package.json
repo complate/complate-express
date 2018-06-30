@@ -1,6 +1,6 @@
 {
 	"name": "complate-express",
-	"version": "0.15.0",
+	"version": "0.16.0",
 	"description": "complate integration for Express",
 	"author": "FND",
 	"license": "Apache-2.0",
@@ -14,17 +14,17 @@
 	},
 	"main": "src/index.js",
 	"scripts": {
-		"test": "eslint --cache *.js src && echo ✓"
+		"test": "eslint --cache src && echo ✓"
 	},
 	"dependencies": {
-		"complate-stream": "0.x",
-		"faucet-pipeline-jsx": "^0.10"
+		"complate-stream": "0.x"
 	},
 	"peerDependencies": {
-		"express": "*"
+		"express": ">=4",
+		"faucet-pipeline-jsx": ">=1.0.0-rc.6"
 	},
 	"devDependencies": {
-		"eslint-config-fnd": "^1.2.0",
-		"release-util-fnd": "^1.0.7"
+		"eslint-config-fnd": "^1.5.0",
+		"release-util-fnd": "^1.1.1"
 	}
 }
